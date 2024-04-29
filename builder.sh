@@ -321,7 +321,7 @@ function run_build() {
 
     # Build image
     bashio::log.info "Run build for ${repository}/${image}:${version} with platform ${docker_platform}"
-    ${docker_wrapper} docker buildx build --pull --tag "${repository}/${image}:${version}" \
+    ${docker_wrapper} docker buildx build --pull --load --tag "${repository}/${image}:${version}" \
         --platform "${docker_platform}" \
         --build-arg "BUILD_FROM=${build_from}" \
         --build-arg "BUILD_VERSION=${version}" \
